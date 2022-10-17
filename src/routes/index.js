@@ -9,6 +9,8 @@ const pacienteUpdateValidation = require("../validations/pacientes/update");
 
 const routes = express.Router();
 
+// rotas "psicologos"
+
 routes.get("/psicologos");
 routes.get("/psicologos/:id");
 routes.post("/psicologos");
