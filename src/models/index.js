@@ -1,3 +1,5 @@
+const atendimentos = require("./atendimentos");
+const Psicologos = require("./Psicologos");
 
 // esboço index models/ relacionamentos
 
@@ -12,5 +14,7 @@ Pacientes.hasMany(Atendimentos,{
 
 
 module.exports = {
-    Pacientes    
+    atendimentos,
+    Psicologos,
+    Pacientes,
 };
