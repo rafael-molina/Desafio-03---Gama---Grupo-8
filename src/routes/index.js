@@ -13,7 +13,7 @@ const routes = express.Router();
 
 routes.get("/psicologos", psicologosController.listarPsicologos);
 routes.get("/psicologos/:id", psicologosController.getPsicologoId);
-routes.post("/psicologos", psicologosController.postPsicologo);
+routes.post("/psicologos", psicologosController.cadastrarPsicologo);
 routes.put("/psicologos/:id", psicologosController.updatePsicologo);
 routes.delete("/psicologos/:id", psicologosController.deletarPsicologo);
 

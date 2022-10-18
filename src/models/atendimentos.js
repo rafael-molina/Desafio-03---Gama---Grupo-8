@@ -1,24 +1,24 @@
 const db = require("../database")
 
-const { dataTypes } = require("sequelize")
+const { DataTypes } = require("sequelize")
 
 const atendimentos = db.define(
     "atendimentos",
     {
         data_atendimento:{
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
         },
         observacao:{
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
         },
         createdAt: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
         },
         updatedAt: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
         },
         pacientes_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
     },
     {

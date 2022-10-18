@@ -1,5 +1,5 @@
 const { Psicologos } = require("../models");
-const { nome, email, senha, apresentacao } = require("../models/Psicologos");
+// const { nome, email, senha, apresentacao } = require("../models/Psicologos");
 
 const psicologosController = {
   listarPsicologos: async (req, res) => {
@@ -24,10 +24,18 @@ const psicologosController = {
       return res.status(404).json("id não encontrado");
     }
   },
-  //falta finalizar
-  async postPsicologo(req, res) {
+  async cadastrarPsicologo(req, res) {
     try {
       const { nome, email, senha, apresentacao } = req.body;
+
+      const novoPsicologo = await Psicologos.create({
+        nome,
+        email,
+        senha,
+        apresentacao,
+      });
+
+      res.json(novoPsicologo);
     } catch (error) {}
   },
   async updatePsicologo(req, res) {

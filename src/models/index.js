@@ -7,7 +7,7 @@ const Pacientes = require("./pacientes");
 
 
 
-Pacientes.hasMany(Atendimentos,{    
+Pacientes.hasMany(atendimentos,{    
     foreignKey:"paciente_id"
 });
 
