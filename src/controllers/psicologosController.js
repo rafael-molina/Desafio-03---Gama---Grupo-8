@@ -1,4 +1,5 @@
 const { Psicologos } = require("../models");
+const bcrypt = require("bcryptjs");
 
 const psicologosController = {
   //testado-ok
@@ -36,15 +37,18 @@ const psicologosController = {
         return res.status(400).json("Você deve informar todos os parametros");
       }
 
+      const novaSenha = bcrypt.hashSync(senha, 10);
+
       const novoPsicologo = await Psicologos.create({
         nome,
         email,
-        senha,
+        senha: novaSenha,
         apresentacao,
       });
 
       res.status(201).json(novoPsicologo);
     } catch (error) {
+        console.log(error);
       return res.status(500).json("Ocorreu algum problema");
     }
   },
