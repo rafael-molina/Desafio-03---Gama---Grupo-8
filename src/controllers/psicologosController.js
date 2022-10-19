@@ -2,25 +2,29 @@ const { Psicologos } = require("../models");
 
 const psicologosController = {
   //testado-ok
-    async listarPsicologos(req, res) {
+  async listarPsicologos(req, res) {
     try {
       const listaDePsicologos = await Psicologos.findAll({});
 
       res.status(200).json(listaDePsicologos);
     } catch (error) {}
   },
-//testado - falta excluir senha no response
-  async getPsicologoId(req, res) { 
+  //testado - ok
+  async getPsicologoId(req, res) {
     try {
       const { id } = req.params;
       const psicologo = await Psicologos.findOne({
+        attributes: ["nome", "email", "apresentacao"],
         where: {
-        id,
+          id,
         },
       });
+      if (!psicologo) {
+        return res.status(404).json("id não encontrado");
+      }
       res.status(200).json(psicologo);
     } catch (error) {
-      return res.status(404).json("id não encontrado");
+      return res.status(500).json("Ocorreu algum problema");
     }
   },
   //testado - ok
@@ -63,7 +67,7 @@ const psicologosController = {
         },
         {
           where: {
-           id,
+            id,
           },
         }
       );
@@ -83,9 +87,9 @@ const psicologosController = {
         id,
       },
     });
-   if (deletePsicologo === 0){
-    return res.status(404).json("id não encontrado");
-   }
+    if (deletePsicologo === 0) {
+      return res.status(404).json("id não encontrado");
+    }
     res.sendStatus(204);
   },
 };
