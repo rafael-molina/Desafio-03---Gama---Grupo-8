@@ -7,7 +7,8 @@ const psicologosCreateValidation = require("../validations/psicologos/create");
 const psicologosUpdateValidation = require("../validations/psicologos/update");
 const psicologosDeleteValidation = require("../validations/psicologos/delete");
 const psicologosGetOneValidation = require("../validations/psicologos/getOne");
-
+const authController = require("../controllers/authController")
+const authLoginValidation = require("../validations/auth/login")
 const pacienteCreateValidation = require("../validations/pacientes/create");
 const pacienteUpdateValidation = require("../validations/pacientes/update");
 
@@ -67,6 +68,13 @@ routes.get("/dashboard/numero-atendimentos", dashboardController.listarNumeroAte
 routes.get("/dashboard/numero-psicologos", dashboardController.listarNumeroPsicologos);
 //média de atendimentos por psicólogos
 routes.get("/dashboard/media-atendimentos-psicologos", dashboardController.mediaAtendimentosPsicologos);
+
+
+
+//Rotas login
+routes.post("/login", authLoginValidation, authController.login);
+
+
 
 
 module.exports = routes;
