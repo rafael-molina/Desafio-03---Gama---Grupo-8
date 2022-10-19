@@ -2,6 +2,7 @@ const express = require("express");
 
 const pacientesController = require("../controllers/pacientesController");
 const psicologosController = require("../controllers/psicologosController");
+const dashboardController = require("../controllers/dashboardController");
 const psicologosCreateValidation = require("../validations/psicologos/create");
 const psicologosUpdateValidation = require("../validations/psicologos/update");
 const psicologosDeleteValidation = require("../validations/psicologos/delete");
@@ -55,5 +56,17 @@ routes.put(
 );
 
 routes.delete("/pacientes/:id", pacientesController.deletarPaciente);
+
+
+//dashboard
+//número de pacientes
+routes.get("/dashboard/numero-paciente", dashboardController.listarNumeroPacientes);
+//número de atendimentos
+routes.get("/dashboard/numero-atendimentos", dashboardController.listarNumeroAtendimentos);
+//número de psicólogos
+routes.get("/dashboard/numero-psicologos", dashboardController.listarNumeroPsicologos);
+//média de atendimentos por psicólogos
+routes.get("/dashboard/media-atendimentos-psicologos", dashboardController.mediaAtendimentosPsicologos);
+
 
 module.exports = routes;
