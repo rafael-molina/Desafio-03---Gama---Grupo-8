@@ -1,8 +1,10 @@
 const Sequelize = require("sequelize");
+const Secret = require("../configs/secret")
 
-const DB_NAME = "la_vie_pess";
-const DB_USER = "root";
-const DB_PASS = "mysql"; 
+
+const DB_NAME = Secret.DB_NAME
+const DB_USER = Secret.DB_USER
+const DB_PASS = Secret.DB_PASS
 const DB_CONFIG = {
   dialect: "mysql",
   host: "localhost",
