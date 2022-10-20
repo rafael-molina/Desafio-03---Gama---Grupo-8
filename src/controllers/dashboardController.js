@@ -32,8 +32,12 @@ const dashboardController = {
   },
   async mediaAtendimentosPsicologos(req, res) {
     try {
-      const mediaAtendimentos = await Psicologos.avg();
-  
+      const countPsicologos = await Psicologos.count({});
+
+      const countAtendimentos = await atendimentos.count({});
+
+
+      const mediaAtendimentos = countAtendimentos / countPsicologos;
 
       return res.status(200).json(mediaAtendimentos);
     } catch (error) {
