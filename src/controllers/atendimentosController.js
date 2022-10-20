@@ -46,6 +46,7 @@ const atendimentosController = {
 
       res.status(201).json(novoAtendimento);
     } catch (error) {
+        console.log(error);
       return res.status(400).json("Ocorreu algum problema");
     }
   },
