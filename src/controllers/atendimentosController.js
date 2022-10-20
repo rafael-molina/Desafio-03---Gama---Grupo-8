@@ -1,6 +1,4 @@
-const { pacientes, atendimentos, psicologos } = require("../models/");
-/* const atendimentos = require('../models/atendimentos');
- */
+const {  atendimentos } = require("../models");
 
 const atendimentosController = {
   // GET /atendimentos

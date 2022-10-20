@@ -1,6 +1,5 @@
 const pacientes = require("../models/pacientes");
 const atendimentos = require("../models/atendimentos");
-const psicologos = require("../models/Psicologos");
 const Psicologos = require("../models/Psicologos");
 
 const dashboardController = {
