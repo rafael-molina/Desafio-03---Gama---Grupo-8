@@ -3,6 +3,7 @@ const express = require("express");
 const pacientesController = require("../controllers/pacientesController");
 const psicologosController = require("../controllers/psicologosController");
 const dashboardController = require("../controllers/dashboardController");
+const atendimentosController = require("../controllers/atendimentosController");
 const psicologosCreateValidation = require("../validations/psicologos/create");
 const psicologosUpdateValidation = require("../validations/psicologos/update");
 const psicologosDeleteValidation = require("../validations/psicologos/delete");
@@ -15,6 +16,12 @@ const pacientesDeleteValidation = require("../validations/pacientes/delete");
 const pacientesGetOneValidation = require("../validations/pacientes/getOne");
 
 const routes = express.Router();
+
+// rotas de Atendimentos
+routes.get("/atendimentos",atendimentosController.listarAtendimentos);
+routes.get("/atendimentos/:id",atendimentosController.infoAtendimento);
+routes.post("/atendimentos",atendimentosController.pacienteAtendimento);
+
 
 // rotas "psicologos"
 

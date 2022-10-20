@@ -1,20 +1,25 @@
 const atendimentos = require("./atendimentos");
 const Psicologos = require("./Psicologos");
+const Pacientes = require("./Pacientes");
 
-// esboço index models/ relacionamentos
-
-const Pacientes = require("./pacientes");
-
-
-
-Pacientes.hasMany(atendimentos,{    
-    foreignKey:"paciente_id"
+atendimentos.belongsTo(Pacientes, {
+  foreignKey: "pacientes_id",
 });
 
+Pacientes.hasMany(atendimentos, {
+  foreignKey: "pacientes_id",
+});
 
+atendimentos.belongsTo(Psicologos, {
+  foreignKey: "psicologos_id",
+});
+
+Psicologos.hasMany(atendimentos, {
+  foreignKey: "psicologos_id",
+});
 
 module.exports = {
-    atendimentos,
-    Psicologos,
-    Pacientes,
+  atendimentos,
+  Psicologos,
+  Pacientes,
 };
