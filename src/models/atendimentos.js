@@ -7,6 +7,11 @@ const pacientes = require("./pacientes");
 const atendimentos = db.define(
   "atendimentos",
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     data_atendimento: {
       type: DataTypes.DATE,
     },
