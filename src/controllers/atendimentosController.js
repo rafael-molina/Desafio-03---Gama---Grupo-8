@@ -1,10 +1,11 @@
-const {  atendimentos } = require("../models");
+const { Atendimentos, Pacientes } = require("../models");
+const jwtDecode = require("jwt-decode");
 
 const atendimentosController = {
   // GET /atendimentos
   async listarAtendimentos(req, res) {
     try {
-      const listaDeAtendimento = await atendimentos.findAll();
+      const listaDeAtendimento = await Atendimentos.findAll();
       res.json(listaDeAtendimento);
 
       return res.status(200).json(listaDeAtendimento);
@@ -17,7 +18,7 @@ const atendimentosController = {
   async infoAtendimento(req, res) {
     try {
       const { id } = req.params;
-      const atendimento = await atendimentos.findOne({
+      const atendimento = await Atendimentos.findOne({
         where: {
           id,
         },
@@ -38,7 +39,14 @@ const atendimentosController = {
     try {
       const { pacientes_id, data_atendimento, observacao } = req.body;
 
-      const novoAtendimento = await atendimentos.create({
+      const token = req.headers["authorization"]
+      const decodedId = jwtDecode(token).id;
+      const dadosPaciente = await Pacientes.findByPk(pacientes_id);
+
+      if (!dadosPaciente) return res.status(404).json("Id não encontrado");
+
+      const novoAtendimento = await Atendimentos.create({
+        psicologos_id: decodedId,
         pacientes_id,
         data_atendimento,
         observacao,
@@ -46,6 +54,7 @@ const atendimentosController = {
 
       res.status(201).json(novoAtendimento);
     } catch (error) {
+      console.log(error);
       return res.status(400).json("Ocorreu algum problema");
     }
   },
