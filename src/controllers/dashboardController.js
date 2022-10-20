@@ -7,7 +7,6 @@ const dashboardController = {
   async listarNumeroPacientes(req, res) {
     try {
       const numeroPacientes = await pacientes.count();
-      res.json(numeroPacientes);
 
       return res.status(200).json(numeroPacientes);
     } catch (error) {
@@ -17,7 +16,6 @@ const dashboardController = {
   async listarNumeroAtendimentos(req, res) {
     try {
       const numeroAtendimentos = await atendimentos.count();
-      res.json(numeroAtendimentos);
 
       return res.status(200).json(numeroAtendimentos);
     } catch (error) {
@@ -27,7 +25,6 @@ const dashboardController = {
   async listarNumeroPsicologos(req, res) {
     try {
       const numeroPsicologos = await Psicologos.count();
-      res.json(numeroPsicologos);
 
       return res.status(200).json(numeroPsicologos);
     } catch (error) {
@@ -37,7 +34,7 @@ const dashboardController = {
   async mediaAtendimentosPsicologos(req, res) {
     try {
       const mediaAtendimentos = await Psicologos.avg();
-      res.json(mediaAtendimentos);
+  
 
       return res.status(200).json(mediaAtendimentos);
     } catch (error) {

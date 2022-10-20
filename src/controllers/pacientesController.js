@@ -1,6 +1,5 @@
 const { Pacientes }  = require("../models");
 
-const bcrypt = require("bcryptjs"); 
 
 const pacientesController = {
     async cadastro(req, res) {

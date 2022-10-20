@@ -25,7 +25,7 @@ const psicologosController = {
       }
       res.status(200).json(psicologo);
     } catch (error) {
-        return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum problema");
     }
   },
   //testado - ok
@@ -68,6 +68,9 @@ const psicologosController = {
         }
       );
       const psicologo = await Psicologos.findByPk(id);
+      if (!psicologo) {
+        return res.status(404).json("id não encontrado");
+      }
 
       res.status(200).json(psicologo);
     } catch (error) {
