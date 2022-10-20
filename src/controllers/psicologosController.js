@@ -15,7 +15,7 @@ const psicologosController = {
     try {
       const { id } = req.params;
       const psicologo = await Psicologos.findOne({
-        attributes: ["nome", "email", "apresentacao"],
+        attributes: ["id", "nome", "email", "apresentacao", "createdAt", "updatedAt"],
         where: {
           id,
         },
