@@ -20,6 +20,9 @@ const atendimentos = db.define(
         pacientes_id: {
             type: DataTypes.INTEGER,
         },
+        psicologos_id: {
+            type: DataTypes.INTEGER,
+        },
     },
     {
         tableName:"atendimentos"
