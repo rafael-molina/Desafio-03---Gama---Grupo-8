@@ -21,14 +21,17 @@ const AuthController = {
 
                 return res.status(401).json("Email ou senha inválido, verifique e tente novamente");
 
-                const token = jwt.sign({
-                    id: psicologo.id,
-                    email: psicologo.email,
-                    nome: psicologo.nome,
-                }, secret.key)
-                return res.json(token)
+            
 
             }
+
+            const token = jwt.sign({
+                id: psicologo.id,
+                email: psicologo.email,
+                nome: psicologo.nome,
+                }, secret.key)
+            return res.json(token)
+            
         } catch (error) {
             console.log(error)
         }

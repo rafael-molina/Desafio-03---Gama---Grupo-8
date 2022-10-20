@@ -9,8 +9,10 @@ const psicologosDeleteValidation = require("../validations/psicologos/delete");
 const psicologosGetOneValidation = require("../validations/psicologos/getOne");
 const authController = require("../controllers/authController")
 const authLoginValidation = require("../validations/auth/login")
-const pacienteCreateValidation = require("../validations/pacientes/create");
-const pacienteUpdateValidation = require("../validations/pacientes/update");
+const pacientesCreateValidation = require("../validations/pacientes/create");
+const pacientesUpdateValidation = require("../validations/pacientes/update");
+const pacientesDeleteValidation = require("../validations/pacientes/delete");
+const pacientesGetOneValidation = require("../validations/pacientes/getOne");
 
 const routes = express.Router();
 
@@ -42,21 +44,28 @@ routes.delete(
 
 routes.post(
   "/pacientes",
-  pacienteCreateValidation,
+  pacientesCreateValidation,
   pacientesController.cadastro
 );
 
 routes.get("/pacientes", pacientesController.listarPacientes);
 
-routes.get("/pacientes/:id", pacientesController.pacientePorId);
+routes.get(
+  "/pacientes/:id", 
+  pacientesGetOneValidation,
+  pacientesController.pacientePorId
+);
 
 routes.put(
   "/pacientes/:id",
-  pacienteUpdateValidation,
+  pacientesUpdateValidation,
   pacientesController.atualizarPaciente
 );
 
-routes.delete("/pacientes/:id", pacientesController.deletarPaciente);
+routes.delete("/pacientes/:id",
+  pacientesDeleteValidation,
+  pacientesController.deletarPaciente
+);
 
 
 //dashboard
