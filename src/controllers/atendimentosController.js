@@ -9,8 +9,9 @@ const atendimentosController = {
       res.json(listaDeAtendimento);
 
       return res.status(200).json(listaDeAtendimento);
+
     } catch (error) {
-      console.error(error);
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
 
@@ -29,8 +30,9 @@ const atendimentosController = {
       }
 
       res.status(200).json(atendimento);
+
     } catch (error) {
-      console.error(error);
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
 
@@ -53,9 +55,9 @@ const atendimentosController = {
       });
 
       res.status(201).json(novoAtendimento);
+      
     } catch (error) {
-      console.log(error);
-      return res.status(400).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
 };
