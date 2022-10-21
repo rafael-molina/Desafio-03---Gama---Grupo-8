@@ -15,7 +15,14 @@ const psicologosController = {
     try {
       const { id } = req.params;
       const psicologo = await Psicologos.findOne({
-        attributes: ["id", "nome", "email", "apresentacao", "createdAt", "updatedAt"],
+        attributes: [
+          "id",
+          "nome",
+          "email",
+          "apresentacao",
+          "createdAt",
+          "updatedAt",
+        ],
         where: {
           id,
         },
@@ -79,17 +86,28 @@ const psicologosController = {
   },
   //testado - ok
   async deletarPsicologo(req, res) {
-    const { id } = req.params;
+    try {
+      const { id } = req.params;
 
-    const deletePsicologo = await Psicologos.destroy({
-      where: {
-        id,
-      },
-    });
-    if (deletePsicologo === 0) {
-      return res.status(404).json("id não encontrado");
+      const deletePsicologo = await Psicologos.destroy({
+        where: {
+          id,
+        },
+      });
+      if (deletePsicologo === 0) {
+        return res.status(404).json("id não encontrado");
+      }
+      res.sendStatus(204);
+    } catch (error) {
+      if (error.name === "SequelizeForeignKeyConstraintError") {
+        return res
+          .status(400)
+          .json(
+            "Existe atendimento relacionado a esse psicólogo, não é possível deletar"
+          );
+      }
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
-    res.sendStatus(204);
   },
 };
 

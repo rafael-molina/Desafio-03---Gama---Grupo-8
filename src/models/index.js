@@ -16,6 +16,7 @@ Atendimentos.belongsTo(Psicologos, {
 
 Psicologos.hasMany(Atendimentos, {
   foreignKey: "psicologos_id",
+  onDelete: "cascade",
 });
 
 module.exports = {
