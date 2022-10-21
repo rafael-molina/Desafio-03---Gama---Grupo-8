@@ -33,7 +33,7 @@ const AuthController = {
             return res.json(token)
             
         } catch (error) {
-            console.log(error)
+            return res.status(500).json("Ocorreu algum problema, contate o suporte")
         }
     }
 };
