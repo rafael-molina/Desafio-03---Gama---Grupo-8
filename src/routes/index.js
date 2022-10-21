@@ -14,13 +14,15 @@ const pacientesCreateValidation = require("../validations/pacientes/create");
 const pacientesUpdateValidation = require("../validations/pacientes/update");
 const pacientesDeleteValidation = require("../validations/pacientes/delete");
 const pacientesGetOneValidation = require("../validations/pacientes/getOne");
+const atendimentosCreateValidation = require("../validations/atendimentos/create");
+const atendimentosGetOneValidation = require("../validations/atendimentos/getOne")
 
 const routes = express.Router();
 
 // rotas de Atendimentos
 routes.get("/atendimentos",atendimentosController.listarAtendimentos);
-routes.get("/atendimentos/:id",atendimentosController.infoAtendimento);
-routes.post("/atendimentos",atendimentosController.pacienteAtendimento);
+routes.get("/atendimentos/:id", atendimentosGetOneValidation, atendimentosController.infoAtendimento);
+routes.post("/atendimentos", atendimentosCreateValidation, atendimentosController.pacienteAtendimento);
 
 
 // rotas "psicologos"
