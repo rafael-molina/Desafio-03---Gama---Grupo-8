@@ -46,10 +46,11 @@ const atendimentosController = {
       if (!dadosPaciente) return res.status(404).json("Id não encontrado");
 
       const novoAtendimento = await Atendimentos.create({
-        psicologos_id: decodedId,
-        pacientes_id,
         data_atendimento,
         observacao,
+        pacientes_id,
+        psicologos_id: decodedId,
+      
       });
 
       res.status(201).json(novoAtendimento);
