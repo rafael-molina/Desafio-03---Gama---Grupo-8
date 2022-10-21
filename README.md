@@ -1,5 +1,5 @@
 
-Desafio-03---Gama---Grupo-8
+Desafio-03 - Gama - Grupo-8
 
 O objetivo deste projeto foi criar uma API para a clínica fictícia La Vie -
 Saúde Mental, utilizando Node.js, Express e
