@@ -25,7 +25,7 @@ const psicologosController = {
       }
       res.status(200).json(psicologo);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
   //testado - ok
@@ -44,7 +44,7 @@ const psicologosController = {
 
       res.status(201).json(novoPsicologo);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
   //testado-ok
@@ -74,7 +74,7 @@ const psicologosController = {
 
       res.status(200).json(psicologo);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum problema, contate o suporte");
     }
   },
   //testado - ok

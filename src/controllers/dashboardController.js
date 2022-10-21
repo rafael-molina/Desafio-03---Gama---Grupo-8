@@ -9,7 +9,7 @@ const dashboardController = {
 
       return res.status(200).json(numeroPacientes);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum erro, contate o suporte");
     }
   },
   async listarNumeroAtendimentos(req, res) {
@@ -18,7 +18,7 @@ const dashboardController = {
 
       return res.status(200).json(numeroAtendimentos);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum erro, contate o suporte");
     }
   },
   async listarNumeroPsicologos(req, res) {
@@ -27,7 +27,7 @@ const dashboardController = {
 
       return res.status(200).json(numeroPsicologos);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum erro, contate o suporte");
     }
   },
   async mediaAtendimentosPsicologos(req, res) {
@@ -41,7 +41,7 @@ const dashboardController = {
 
       return res.status(200).json(mediaAtendimentos);
     } catch (error) {
-      return res.status(500).json("Ocorreu algum problema");
+      return res.status(500).json("Ocorreu algum erro, contate o suporte");
     }
   },
 };
