@@ -7,7 +7,7 @@ Banco de dados MySQL.
 
 ## ✒️ Autores
 
-* **Maísa Fernanda** - *CRUD Psicólogos* - [Maísa Fernanda](https://github.com/maisalima01)
+* **Maísa Fernanda** - *CRUD Psicólogos e Dashboard* - [Maísa Fernanda](https://github.com/maisalima01)
 * **Rafael Molina** - *CRUD Pacientes* - [Rafael Molina](https://github.com/linkParaPerfil)
 * **Nicholas Lopes** - *CRUD Atendimentos* - [Nicholas Lopes](https://github.com/NIihLopes)
 * **Victor Lopes** - *Login de psicólogo e documentação do projeto* - [Victor Lopes](https://github.com/victorlopesdp13)
